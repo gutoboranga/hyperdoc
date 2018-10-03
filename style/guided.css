@@ -1,0 +1,30 @@
+:root {
+  --guided_container_height: 50px;
+}
+
+.content_container {
+  width: 100%;
+  height: calc(100% - var(--guided_container_height));
+}
+
+.guided_container {
+  background-color: blue;
+  width: 100%;
+  height: var(--guided_container_height);
+  position: absolute;
+  bottom: 0;
+}
+
+.link {
+  background-color: green;
+}
+
+#previous {
+  position: absolute;
+  left: 0;
+}
+
+#next {
+  position: absolute;
+  right: 0;
+}
