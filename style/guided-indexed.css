@@ -4,22 +4,23 @@
 }
 
 .content_container {
-  width: calc(100% - var(--indexed_container_width));
+  width: 100%;
   height: 100%;
 }
 
 .guided_container {
-  background-color: blue;
   width: 100%;
   height: var(--guided_container_height);
   position: absolute;
   bottom: 0;
+  right: 0;
 }
 
-.content_and_indexeded_container {
-  width: 100%;
-  height: calc(100% - var(--guided_container_height));
+.content_and_guided_container {
+  width: calc(100% - var(--indexed_container_width));
+  height: 100%;
   position: absolute;
+  right: 0;
 }
 
 .indexed_container {
@@ -30,10 +31,6 @@
   left: 0;
   top: 0;
   overflow: auto;
-}
-
-.link {
-  background-color: green;
 }
 
 #previous {

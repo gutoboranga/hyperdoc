@@ -8,15 +8,10 @@
 }
 
 .guided_container {
-  background-color: blue;
   width: 100%;
   height: var(--guided_container_height);
   position: absolute;
   bottom: 0;
-}
-
-.link {
-  background-color: green;
 }
 
 #previous {
