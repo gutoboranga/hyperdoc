@@ -33,8 +33,19 @@ app.listen(app.get('port'), function() {
 // ========================================================================================
 
 app.get("/", function(req, res) {
-  res.send("root")
+  let p = path.join(__dirname, "../templates/index.html")
+  
+  res.sendFile(p)
 });
+
+app.get("/:mode", function(req, res) {
+  var mode = req.params.mode;
+  
+  let newUrl = builder.buildPage(mode, undefined);
+  
+  res.redirect(newUrl);
+});
+
 
 app.get("/:mode/:file", function(req, res) {
   var mode = req.params.mode;

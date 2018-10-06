@@ -10,6 +10,7 @@ class Builder {
     this.filenames = filenames;
     
     this.allowedModes = ["guided", "indexed", "guided-indexed"]
+    this.allowedModesLabels = ["Guiado", "Indexado", "Guiado-indexado"]
     
     this.BASE_URL = "http://localhost:5000/"
     
@@ -28,8 +29,12 @@ class Builder {
       return 404;
     }
     
+    // se não forneceu nome, pega o primeiro e retorna a url dele pra dar redirect
+    if (file == undefined) {
+      return mode + "/" + this.filenames[0];
+    }
     // se o conteúdo pedido é inválido
-    if (this.filenames.indexOf(file) < 0) {
+    else if (file != undefined && this.filenames.indexOf(file) < 0) {
       return 404;
     }
     
@@ -41,6 +46,7 @@ class Builder {
     let fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
     
     dom.querySelector('#content').set_content(fileContent)
+    dom.querySelector('#modes_buttons_container').set_content(this.buildModesLinks(file))
     
     switch (mode) {
       case "guided":
@@ -68,6 +74,8 @@ class Builder {
     dom.querySelector('#previous').set_content(links[0])
     dom.querySelector('#next').set_content(links[1])
     
+    
+    
     return dom.toString();
   }
   
@@ -84,7 +92,6 @@ class Builder {
     let listOfIndexes = this.buildListOfIndexes()
     
     dom.querySelector('#links_list').set_content(listOfIndexes)
-    console.log(links);
     dom.querySelector('#previous').set_content(links[0])
     dom.querySelector('#next').set_content(links[1])
     
@@ -95,7 +102,7 @@ class Builder {
     var list = []
     
     for (var i=0; i<this.filenames.length; i++) {
-      var link = "<a href=\"" + this.filenames[i] + "\">" + this.titles[i] + "</a>"
+      var link = "<a class=\"index_link\" href=\"" + this.filenames[i] + "\">" + this.titles[i] + "</a>"
       var item = "<li>" + link + "</li>"
       
       list.push(item)
@@ -107,8 +114,6 @@ class Builder {
   buildGuidedLinks(currentFile) {
     var previous = ""
     var next = ""
-    
-    console.log("file: " + currentFile);
     
     for (var i=0; i<this.indexes.length; i++) {
       if (this.filenames[i] == currentFile) {
@@ -135,9 +140,20 @@ class Builder {
   buildLinkDiv(id, filename, title) {
     var html = ""
     
-    html += "<div id=\"" + id + "\">"
     html += "<a class=\"link\" href=\"" + filename + "\">" + title + "</a>"
-    html += "</div>"
+    
+    return html
+  }
+  
+  buildModesLinks(fileName) {
+    var html = ""
+    
+    for (var i = 0; i < this.allowedModes.length; i++) {
+      let href = this.BASE_URL + this.allowedModes[i] + "/" + fileName
+      let link = "<a class=\"modes_button\" href=\"" + href + "\">" + this.allowedModesLabels[i] + "</a>" + "<br>"
+      
+      html += link
+    }
     
     return html
   }
