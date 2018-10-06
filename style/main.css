@@ -13,10 +13,19 @@ h1 {
 
 p {
   margin: auto;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   max-width: 60%;
   text-align: justify;
   font-size: 18px;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  max-width: 100%;
 }
 
 .content_container {
