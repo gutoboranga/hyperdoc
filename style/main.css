@@ -2,8 +2,10 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  font-family: verdana, sans-serif;
+  /* font-family: verdana, sans-serif; */
   align-items: center;
+  font-family: 'Open Sans', sans-serif;
+
 }
 
 h1 {
@@ -69,21 +71,28 @@ iframe {
 }
 
 ul {
-  margin-top: 40px;
-  padding-left: 30px;
-  padding-right: 30px;
+  margin-top: 100px;
+  padding: 0;
 }
 
 li {
   margin-top: 10px;
+  margin-left: 0;
+  padding-bottom: 4px;
   list-style: none;
 }
 
 a {
-  font-family: courier;
+  /* font-family: courier; */
   font-size: 16px;
+  margin-left: 20px;
 }
 
 .index_link {
   color: white;
+  text-decoration: none;
+}
+
+.current_link {
+  background-color: #286847;
 }

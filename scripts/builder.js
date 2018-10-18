@@ -54,7 +54,7 @@ class Builder {
         break;
     
       case "indexed":
-        return this.buildIndexedPage(dom);
+        return this.buildIndexedPage(dom, file);
         break;
     
       case "guided-indexed":
@@ -79,8 +79,8 @@ class Builder {
     return dom.toString();
   }
   
-  buildIndexedPage(dom) {
-    let listOfIndexes = this.buildListOfIndexes()
+  buildIndexedPage(dom, file) {
+    let listOfIndexes = this.buildListOfIndexes(file)
     
     dom.querySelector('#links_list').set_content(listOfIndexes)
     
@@ -89,7 +89,7 @@ class Builder {
   
   buildGuidedIndexedPage(dom, file) {
     let links = this.buildGuidedLinks(file)
-    let listOfIndexes = this.buildListOfIndexes()
+    let listOfIndexes = this.buildListOfIndexes(file)
     
     dom.querySelector('#links_list').set_content(listOfIndexes)
     dom.querySelector('#previous').set_content(links[0])
@@ -98,12 +98,18 @@ class Builder {
     return dom.toString();
   }
   
-  buildListOfIndexes() {
+  buildListOfIndexes(file) {
     var list = []
     
     for (var i=0; i<this.filenames.length; i++) {
       var link = "<a class=\"index_link\" href=\"" + this.filenames[i] + "\">" + this.titles[i] + "</a>"
-      var item = "<li>" + link + "</li>"
+      var item = "<li"
+      
+      if (this.filenames[i] == file) {
+        item += " class=\"current_link\""
+      }
+      
+      item += ">" + link + "</li>"
       
       list.push(item)
     }

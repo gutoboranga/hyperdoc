@@ -1,5 +1,5 @@
 :root {
-  --indexed_container_width: 200px;
+  --indexed_container_width: 250px;
 }
 
 .content_container {
@@ -8,7 +8,7 @@
 }
 
 .indexed_container {
-  background-color: #3f4058;
+  background-color: #191919;
   width: var(--indexed_container_width);
   height: 100%;
   position: absolute;
