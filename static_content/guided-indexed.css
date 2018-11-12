@@ -1,0 +1,44 @@
+:root {
+  --indexed_container_width: 250px;
+  --guided_container_height: 50px;
+}
+
+.content_container {
+  width: 100%;
+  height: 100%;
+}
+
+.guided_container {
+  width: 100%;
+  height: var(--guided_container_height);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.content_and_guided_container {
+  width: calc(100% - var(--indexed_container_width));
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+
+.indexed_container {
+  background-color: #191919;
+  width: var(--indexed_container_width);
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: auto;
+}
+
+#previous {
+  position: absolute;
+  left: 0;
+}
+
+#next {
+  position: absolute;
+  right: 0;
+}
