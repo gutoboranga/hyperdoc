@@ -38,6 +38,7 @@ function generate(builder) {
     dom.querySelector('#indexed_link').set_content("<a href=\"" + builder.filenames[0] + "_indexed.html\">Indexado</a> - Roteiro com índice de conteúdo em que você define a ordem<br>")
     dom.querySelector('#guided-indexed_link').set_content("<a href=\"" + builder.filenames[0] + "_guided-indexed.html\">Guiado-indexado</a> - Roteiro com links ordenados e índice de conteúdos<br>")
 
+    // console.log(dom.toString());
     fs.writeFileSync(destinationPath, dom.toString())
 
     // copia os arquivos css pra pasta ../static_content/
@@ -46,7 +47,7 @@ function generate(builder) {
         let content = fs.readFileSync(sourcePath, { encoding: 'utf8' });
 
         let destinationPath = path.join(__dirname, STATIC_CONTENT_DIR + STYLESHEETS[i] + ".css")
-        fs.writeFileSync(destinationPath, content)
+        fs.writeFileSync(destinationPath, content, 'utf8', function (err) {})
     }
 
 }
