@@ -13,7 +13,7 @@ var app = express();
 let CONTENT_DIR = "../content/"
 let TEMPLATES_DIR = "../templates/"
 
-let BASE_URL = "https://localhost:5000/"
+// let BASE_URL = "https://brazilian-extinct-animals.herokuapp.com/"
 
 let parser = new Parser([],[],[]);
 let builder = new Builder(parser.indexes, parser.titles, parser.filenames);

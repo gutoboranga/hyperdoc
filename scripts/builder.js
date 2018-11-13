@@ -12,7 +12,7 @@ class Builder {
     this.allowedModes = ["guided", "indexed", "guided-indexed"]
     this.allowedModesLabels = ["Guiado", "Indexado", "Guiado-indexado"]
     
-    this.BASE_URL = "http://localhost:5000/"
+    this.BASE_URL = "https://brazilian-extinct-animals.herokuapp.com/"
     
     this.TEMPLATES_DIR = "../templates/"
     this.TEMPLATE_EXT = ".html"
