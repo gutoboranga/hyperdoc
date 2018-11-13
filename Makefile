@@ -1,7 +1,7 @@
 server:
 	cd scripts; node server.js;
 
-static_content:
+staticContent:
 	rm -rf static_content
 	mkdir static_content
 	mkdir static_content/html
