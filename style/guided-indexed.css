@@ -42,3 +42,10 @@
   position: absolute;
   right: 0;
 }
+
+#footer {
+    bottom: 0;
+    left: calc(50% + var(--indexed_container_width) / 2);
+    position: absolute;
+    margin-bottom: 20px;
+}
