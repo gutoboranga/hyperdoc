@@ -34,9 +34,9 @@ function generate(builder) {
     let html_parse = new require('node-html-parser').parse;
     let dom = html_parse(index);
 
-    dom.querySelector('#guided_link').set_content("<a href=\"" + builder.filenames[0] + "_guided.html\">Guiado</a> - Roteiro com ordem pré-definida, através de links de navegação<br>")
-    dom.querySelector('#indexed_link').set_content("<a href=\"" + builder.filenames[0] + "_indexed.html\">Indexado</a> - Roteiro com índice de conteúdo em que você define a ordem<br>")
-    dom.querySelector('#guided-indexed_link').set_content("<a href=\"" + builder.filenames[0] + "_guided-indexed.html\">Guiado-indexado</a> - Roteiro com links ordenados e índice de conteúdos<br>")
+    dom.querySelector('#guided_link').set_content("<a href=\"" + builder.filenames[0] + "_guided.html\">Guiado</a>")
+    dom.querySelector('#indexed_link').set_content("<a href=\"" + builder.filenames[0] + "_indexed.html\">Indexado</a>")
+    dom.querySelector('#guided-indexed_link').set_content("<a href=\"" + builder.filenames[0] + "_guided-indexed.html\">Guiado-indexado</a>")
 
     // console.log(dom.toString());
     fs.writeFileSync(destinationPath, dom.toString())

@@ -48,6 +48,10 @@ class StaticBuilder {
     dom.querySelector('#content').set_content(fileContent)
     dom.querySelector('#modes_buttons_container').set_content(this.buildModesLinks(file))
 
+    let currentPage = this.filenames.findIndex(x => x == file)
+    dom.querySelector('#footer').set_content(currentPage+1 + "/" + this.filenames.length)
+
+
     switch (mode) {
       case "guided":
         return this.buildGuidedPage(dom, file);
